@@ -1,0 +1,38 @@
+The cron daemon checks the directories /var/spool/cron, /etc/cron.d and the file /etc/crontab, once a minute and executes any commands specified that match the time.
+
+
+
+    Two types of cron jobs
+        System cron jobs
+            run as root and rigidly scheduled
+            perform system-wide maintenance tasks (Cleaning out /tmp or rotating logs)
+            controlled by /etc/crontab
+        User cron jobs
+            Use 'crontab’ command to create user cron jobs
+            stored in /var/spool/cron/crontabs/
+
+
+
+    crontab -u [user] file This command will load the crontab data from the specified file
+    crontab -l -u [user] This command will display/list user’s crontab contents
+    crontab -r -u [user] This Command will remove user’s crontab contents
+    crontab -e -u [user] This command will edit user’s crontab contents
+
+
+
+
+
+
+  ┌───────────── minute (0 - 59)
+  │ ┌───────────── hour (0 - 23)
+  │ │ ┌───────────── day of the month (1 - 31)
+  │ │ │ ┌───────────── month (1 - 12)
+  │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
+  │ │ │ │ │                           7 is also Sunday on some systems)
+  │ │ │ │ │
+  │ │ │ │ │
+  * * * * * <Time/Day to execute    "Command to Execute"
+
+(Mnemonic: Minnie Has Daily Money Worries)
+* The syntax of each line expects a cron expression made of five fields, followed
+by a shell command to execute.

@@ -9,3 +9,63 @@ From the above image:
     User ID Info (GECOS): The comment field. It allow you to add extra information about the users such as user’s full name, phone number etc. This field use by finger command.
     Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
     Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection. If the user entry in the /etc/passwd file doesn’t have an entry in the shell field, the user gets a Bourne shell (/bin/sh).
+
+
+
+Each column in /etc/passwd, delimited by a colon and it is explained in detail below.
+
+1
+Username
+	User login id
+
+2
+Password
+	The password. You should see either an x, an asterisk (*), or an encrypted password. An x points to /etc/shadow for the actual password. An       
+    asterisk means the account is disabled.
+3
+UserID
+    The unique numeric user ID (UID) for that user. By default, Red Hat starts normal user IDs at 500.
+4
+GroupID
+    The numeric group ID (GID) associated with that user. By default, RHEL creates a new group for every new user, and the number matches the UID.
+5
+User Info
+    You can enter any information of your choice in this field. Standard options include the user's full name, telephone number, e-mail address,          physical location. Also known as GECOS field.
+6 
+Home Directory 
+    Users home directory. RHEL places new home directories in /home/username.
+7
+Login Shell
+    Users login shell. Default Linux shell is bash shell.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

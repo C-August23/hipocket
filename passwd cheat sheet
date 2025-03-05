@@ -1,59 +1,14 @@
-https://www.cyberciti.biz/media/ssb.images/uploaded_images/passwd-file-791527.png
-
-From the above image:
-
-    Username: It is used when user logs in. It should be between 1 and 32 characters in length.
-    Password: An x character indicates that encrypted and salted password is stored in /etc/shadow file. Please note that you need to use the passwd command to computes the hash of a password typed at the CLI or to store/update the hash of the password in /etc/shadow file.
-    User ID (UID): Each user must be assigned a user ID (UID). UID 0 (zero) is reserved for root and UIDs 1-99 are reserved for other predefined accounts. Further UID 100-999 are reserved by system for administrative and system accounts/groups.
-    Group ID (GID): The primary group ID (stored in /etc/group file)
-    User ID Info (GECOS): The comment field. It allow you to add extra information about the users such as user’s full name, phone number etc. This field use by finger command.
-    Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
-    Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection. If the user entry in the /etc/passwd file doesn’t have an entry in the shell field, the user gets a Bourne shell (/bin/sh).
-
-
-
-Each column in /etc/passwd, delimited by a colon and it is explained in detail below.
-
-1
-Username
-	User login id
-
-2
-Password
-	The password. You should see either an x, an asterisk (*), or an encrypted password. An x points to /etc/shadow for the actual password. An       
-    asterisk means the account is disabled.
-3
-UserID
-    The unique numeric user ID (UID) for that user. By default, Red Hat starts normal user IDs at 500.
-4
-GroupID
-    The numeric group ID (GID) associated with that user. By default, RHEL creates a new group for every new user, and the number matches the UID.
-5
-User Info
-    You can enter any information of your choice in this field. Standard options include the user's full name, telephone number, e-mail address,          physical location. Also known as GECOS field.
-6 
-Home Directory 
-    Users home directory. RHEL places new home directories in /home/username.
-7
-Login Shell
-    Users login shell. Default Linux shell is bash shell.
-
 Example:
-
 	jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/jsmith:/bin/sh
-	
-	The fields, in order from left to right, are:[2]
-	
-	    jsmith: User name: the string a user would type in when logging into the operating system: the logname. Must be unique across users listed in the file.
-	    x: Information used to validate a user's password. The format is the same as that of the analogous field in the shadow password file, with the additional convention that setting it to "x" means the actual password is found in the shadow file, a common occurrence on modern systems.[3]
-	    1001: user identifier number, used by the operating system for internal purposes. It must be unique as it identifies users uniquely.
-	    1000: group identifier number, which identifies the primary group of the user; all files that are created by this user may initially be accessible to this group.
-	    Joe Smith,Room 1007...: Gecos field, commentary that describes the person or account. Typically, this is a set of comma-separated values including the user's full name and contact details.[4]
-	    /home/jsmith: Path to the user's home directory.
-	    /bin/sh: Program that is started every time the user logs into the system. For an interactive user, this is usually one of the system's command line interpreters (shells).
-	
-	
-	
+	  1    2   3    4  \.......5.....5.......5......5.......5.......5....../      6		  7
+ 1.Username: This field stores the usernames which are used while login into the system. The length of this field is between 1 and 32 characters.
+ 2.Password: This field store the password of the user. The x character indicates the password is stored in /etc/shadow file in the encrypted format. We can use the passwd command to update this field.
+ 3.User ID(UID): User identifier is the number assigned to each user by the operating system to refer the users. The 0 UID is reserved for the root user. And 1-99 UID are reserved for other predefined accounts. And 100-999 are reserved by the system for administrative and system accounts/groups.
+ 4.Group ID(GID): Group identifier is the number indicating the primary group of users. Most of the time it is the same as the UID.
+ 5.User ID Info (GECOS): This is a comment field. This field contains information like the user phone number, address, or full name of the user. This field is used by the finger command to get information about the user.
+ 6.Home directory: This field contains the absolute path of the user’s home directory. By default, the users are created under the /home directory. If this file is empty, then the home directory of that user will be /
+ 7.Login shell: This field store the absolute path of the user shell. This shell is started when the user is log in to the system.
+
 
 
 

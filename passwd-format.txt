@@ -1,0 +1,47 @@
+Example:
+	jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/jsmith:/bin/sh
+	  1    2   3    4  \.......5.....5.......5......5.......5.......5....../      6		  7
+
+===================================================================================================================================
+
+ 1.	Username: This field stores the usernames which are used while login into the system. The length of this field is between 1 and 32 characters.
+
+ 2.	Password: This field store the password of the user. The x character indicates the password is stored in /etc/shadow file in the encrypted format. We can use the passwd command to update this field.
+
+ 3.	User ID(UID): User identifier is the number assigned to each user by the operating system to refer the users. The 0 UID is reserved for the root user. And 1-99 UID are reserved for other predefined accounts. And 100-999 are reserved by the system for administrative and system accounts/groups.
+
+ 4.	Group ID(GID): Group identifier is the number indicating the primary group of users. Most of the time it is the same as the UID.
+
+ 5.	User ID Info (GECOS): This is a comment field. This field contains information like the user phone number, address, or full name of the user. This field is used by the finger command to get information about the user.
+
+ 6.	Home directory: This field contains the absolute path of the user’s home directory. By default, the users are created under the /home directory. If this file is empty, then the home directory of that user will be /
+
+ 7.Login shell: This field store the absolute path of the user shell. This shell is started when the user is log in to the system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

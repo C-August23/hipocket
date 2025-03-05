@@ -67,9 +67,8 @@ Get-NetTCPConnection -State Established
   #Displays all TCP/UDP connections with ports in numerical form with PID and executable associated to the connections
 netstat -anob | more
 
-  #
-
-
+  #Get SID on powershell
+Get-LocalUser | select Name,SID
 
 
 

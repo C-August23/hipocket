@@ -1,0 +1,9 @@
+S-1-5-21-1004336348-1177238915-682003330-512
+0 1|2  \................3............../ \4/
+
+
+  1  A revision level (1)
+  2  An identifier authority (5, NT Authority)
+  3  A domain identifier (21-1004336348-1177238915-682003330, Contoso)
+  4  A relative identifier (512, Domain Admins)
+

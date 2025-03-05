@@ -38,10 +38,22 @@ Home Directory
 Login Shell
     Users login shell. Default Linux shell is bash shell.
 
+Example:
 
-
-
-
+	jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/jsmith:/bin/sh
+	
+	The fields, in order from left to right, are:[2]
+	
+	    jsmith: User name: the string a user would type in when logging into the operating system: the logname. Must be unique across users listed in the file.
+	    x: Information used to validate a user's password. The format is the same as that of the analogous field in the shadow password file, with the additional convention that setting it to "x" means the actual password is found in the shadow file, a common occurrence on modern systems.[3]
+	    1001: user identifier number, used by the operating system for internal purposes. It must be unique as it identifies users uniquely.
+	    1000: group identifier number, which identifies the primary group of the user; all files that are created by this user may initially be accessible to this group.
+	    Joe Smith,Room 1007...: Gecos field, commentary that describes the person or account. Typically, this is a set of comma-separated values including the user's full name and contact details.[4]
+	    /home/jsmith: Path to the user's home directory.
+	    /bin/sh: Program that is started every time the user logs into the system. For an interactive user, this is usually one of the system's command line interpreters (shells).
+	
+	
+	
 
 
 

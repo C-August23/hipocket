@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+
+        if [ $@ == R ]; then
+                ls -hlisaR
+        elif [ $@ == search ]; then
+                echo "Please enter search term:"
+                read term
+                ls -hlisa | grep "$term" | tee /dev/tty | wc -l
+                echo ""
+                echo "---- Done! -----"
+                echo ""
+        elif [ $@ == Rsearch ]; then
+                echo "Please enter search term:"
+                read term
+                ls -hlisaR | grep "$term" | tee /dev/tty | wc -l
+                echo ""
+                echo "---- Done! -----"
+                echo ""
+
+                ls -hlisa
+        fi
+fi
+
+if [ $# == 0 ]; then
+
+        ls -hlisa | tee /dev/tty | wc -l
+
+fi

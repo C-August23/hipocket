@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: mkscript <filename>"
+    exit 1
+fi
+
+sudo touch "$@" && sudo chmod +x "$@"
+
+sudo nano "$@"

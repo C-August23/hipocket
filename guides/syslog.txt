@@ -58,5 +58,14 @@ Location: All logs are in /var, most are in /var/log
 Config File: /etc/rsyslog.conf
 Service: /usr/sbin/rsyslogd
 
+Message format: ==========================================================================================================================
 
+Date    Time        System                Program/Cmd                            Description
+Apr 6 00:00:09 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com). 
+Apr 6 00:00:10 linux-opstation-7qhp CRON[10943]: (root) CMD ( cd / && run-parts --report /etc/cron.hourly)
+Apr 6 00:00:11 linux-opstation-7qhp CRON[10948]: (root) CMD (test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily ))
+Apr 6 00:00:12 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.89.198:123 (ntp.ubuntu.com).
+Apr 6 00:00:13 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com).
+Apr 6 00:00:14 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.94.4:123 (ntp.ubuntu.com).
 
+XML Stuff: ==============================================================================================================================

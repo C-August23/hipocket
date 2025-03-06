@@ -20,16 +20,27 @@ Here is a breakdown of the elements inside of an entry: ========================
 
 Here is Message FACILITIES:      
 
-Num. Code      Facility
-                    
-0--------------kernel messages
-1--------------user-level messages
-2--------------mail system
-3--------------system daemons
-4--------------security/authorization messages
-5--------------messages made by syslogd
-6--------------line printer subsystem
-7--------------network news subsystem
+Num    KeyWord                    Facility
+0-------kern-----------------Kernel messages
+1-------user-----------------User-level messages
+2-------mail-----------------Mail system
+3-------daemon---------------System daemons
+4-------auth-----------------Security/authentication messages
+5-------syslog---------------Messages generated internally by syslogd
+6-------lpr------------------Line printer subsystem
+7-------news-----------------Network news subsystem
+8-------uucp-----------------UUCP subsystem
+9-------cron-----------------Cron subsystem
+10------authpriv-------------Security and authentication messages
+11------ftp------------------FTP daemon
+12------ntp------------------NTP subsystem
+13------security-------------Log audit
+14------console--------------Log alert
+15------solaris-cron---------Scheduling daemon
+16–23---local0 –> local7-----Locally used facilities 
+
+
+
 
 Here is Message SEVERITIES:
 

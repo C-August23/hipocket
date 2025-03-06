@@ -1,4 +1,5 @@
-
+SYSLOG - RFC 5424 ---------------------------------- Caleb Gustafson $projectname
+ 
 Selectors     facility.severity
  Action       /path/to/lo/location
 

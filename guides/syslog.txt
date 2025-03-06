@@ -28,7 +28,8 @@ path/to/log/location is where the log is stored and/or any action taken on the e
 Example of an entry:
 "kern.critical		        -/var/log/kern.log"
 
-Here is a breakdown of the elements inside of an entry: ================================================================================
+Here is a breakdown of the elements inside of an entry: ===============================================================================
+
 
 Here is Message FACILITIES:      
 
@@ -52,8 +53,6 @@ Num    KeyWord                    Facility
 16–23---local0 –> local7-----Locally used facilities 
 
 
-
-
 Here is Message SEVERITIES:
 
 Num. Code      Facility
@@ -67,7 +66,7 @@ Num. Code      Facility
 6--------------Informational
 7--------------Debug
 
-=========================================================================================================================================
+Important file locations: ===========================================================================================================
 
 /var/log/auth.log - Authentication related events 
 /var/run/utmp - Users currently logged in (Not in human readable format. Must use 'last' command)
@@ -95,5 +94,3 @@ Apr 6 00:00:11 linux-opstation-7qhp CRON[10948]: (root) CMD (test -x /usr/sbin/a
 Apr 6 00:00:12 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.89.198:123 (ntp.ubuntu.com).
 Apr 6 00:00:13 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com).
 Apr 6 00:00:14 linux-opstation-7qhp systemd-timesyncd[745]: Timed out waiting for reply from 91.189.94.4:123 (ntp.ubuntu.com).
-
-XML Stuff: ==============================================================================================================================

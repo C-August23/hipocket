@@ -1,8 +1,8 @@
 SYSLOG - RFC 5424 ---------------------------------- Caleb Gustafson $projectname
  
-Selectors     facility.severity
- Action       /path/to/lo/location
-
+     
+    Selectors                  Action       
+facility.severity      /path/to/lo/location
 
 Facility is the source, or event, that generated the log
 Severity is how urgent an event is from 0 (Emergency) to 7 (Debug)

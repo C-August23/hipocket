@@ -1,4 +1,9 @@
 SYSLOG - RFC 5424 ---------------------------------- Caleb Gustafson - Project
+
+
+System Authentication Application
+
+
 Here is how a configuration entry is structured: =======================================================================================
 
     Selectors                  Action       

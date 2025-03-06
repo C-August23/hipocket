@@ -10,14 +10,16 @@
 PASSWD - #DOCUMENTATION# -----------------------V0.1-------------------------- Caleb Gustafson - HipOcket
 =========================================================================================================
 
+	The PASSWD file in linux gives information on login. It lists the system's accounts, their UID and GID, home directory, shell, and more. Read access is open to the general, write access is limited to superuser and root.
 
 
+Format of the PASSWD file: ==============================================================================
 
 Example:
 	jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/jsmith:/bin/sh
 	  1    2   3    4  \.......5.....5.......5......5.......5.......5....../      6		  7
 
-===================================================================================================================================
+
 
  1.	Username: This field stores the usernames which are used while login into the system. The length of this field is between 1 and 32 characters.
 

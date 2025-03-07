@@ -1,0 +1,221 @@
+   _____        _        _        _____                 _    _  _          ____         _          _     
+  / ____|      | |      | |      / ____|               | |  | |(_)        / __ \       | |        | |    
+ | |      __ _ | |  ___ | |__   | |  __       ______   | |__| | _  _ __  | |  | |  ___ | | __ ___ | |_   
+ | |     / _` || | / _ \| '_ \  | | |_ |     |______|  |  __  || || '_ \ | |  | | / __|| |/ // _ \| __|  
+ | |____| (_| || ||  __/| |_) | | |__| |  _            | |  | || || |_) || |__| || (__ |   <|  __/| |_   
+  \_____|\__,_||_| \___||_.__/   \_____| (_)           |_|  |_||_|| .__/  \____/  \___||_|\_\\___| \__|  
+                                                                  | |                                    
+                                                                  |_|                                    
+=========================================================================================================
+CRONTAB - #DOCUMENTATION# ------------------V0.1------------------------------ Caleb Gustafson - HipOcket
+=========================================================================================================
+
+
+Active Directory uses Lightweight Directory Access Protocol (LDAP) versions 2 and 3, Microsoft's version of Kerberos (authentication), and DNS
+
+
+
+=========================== Distinguished Name (DN) explaination: =========================================
+
+
+A Distinguished Name (DN) is a unique identifier used in Active Directory (AD) and LDAP to specify the exact location of an object (like a user, computer, or group) within the directory structure.
+
+
+
+*String*-----*Attribute type*
+  DC---------domainComponent
+  CN---------commonName
+  OU---------organizationalUnitName
+  O----------organizationName
+  STREET-----streetAddress
+  L----------localityName
+  ST---------stateOrProvinceName
+  C----------countryName
+  UID--------userid
+
+
+Think of it like a file path or an address that tells you where something is stored in a hierarchy.
+
+  Here are some examples of DN's that will help you wrap your head around them.
+----------------------------------------------------------------------------------------------------------
+Example 1: A User in a Department
+
+CN=John Doe,OU=Sales,DC=hello,DC=world
+
+    CN=John Doe → A user named "John Doe".
+    OU=Sales → The user is in the "Sales" department.
+    DC=hello,DC=world → The domain is hello.world.
+----------------------------------------------------------------------------------------------------------
+Example 2: A Company with an Office Location
+
+O=TechCorp,L=New York,ST=NY,C=US
+
+    O=TechCorp → The organization (company) is "TechCorp".
+    L=New York → The office is in "New York City".
+    ST=NY → The state is "New York".
+    C=US → The country is "United States".
+----------------------------------------------------------------------------------------------------------
+Example 3: A User in a Group Within a Domain
+
+CN=Jane Smith,CN=Users,DC=company,DC=com
+
+    CN=Jane Smith → A user named "Jane Smith".
+    CN=Users → Inside the Users container (a default AD container).
+    DC=company,DC=com → The domain is company.com.
+----------------------------------------------------------------------------------------------------------
+Example 4: A Server Located at a Specific Address
+
+CN=Server01,OU=IT,STREET=123 Main St,L=Miami,ST=FL,C=US,DC=mycompany,DC=com
+
+    CN=Server01 → A computer/server named "Server01".
+    OU=IT → It belongs to the "IT" department.
+    STREET=123 Main St → Located at "123 Main St".
+    L=Miami → In the city of "Miami".
+    ST=FL → In the state of "Florida".
+    C=US → In the United States.
+    DC=mycompany,DC=com → The domain is mycompany.com.
+----------------------------------------------------------------------------------------------------------
+Example 5: A User with a Unique Identifier (UID)
+
+UID=john123,CN=John Doe,OU=Engineering,DC=corp,DC=net
+
+    UID=john123 → A unique identifier for the user "John Doe".
+    CN=John Doe → The full name of the user.
+    OU=Engineering → Part of the "Engineering" department.
+    DC=corp,DC=net → The domain is corp.net.
+----------------------------------------------------------------------------------------------------------
+Example 6: A CEO in a Global Company
+
+CN=Alice Johnson,OU=Executives,O=GlobalCorp,C=US,DC=globalcorp,DC=com
+
+    CN=Alice Johnson → A specific person (CEO).
+    OU=Executives → She is in the "Executives" organizational unit.
+    O=GlobalCorp → The company is "GlobalCorp".
+    C=US → The company is in the United States.
+    DC=globalcorp,DC=com → The domain is globalcorp.com.
+----------------------------------------------------------------------------------------------------------
+Example 7: A Server in a Data Center
+
+CN=WebServer1,OU=DataCenter1,STREET=789 Cloud Ave,L=San Jose,ST=CA,C=US,DC=techcloud,DC=net
+
+    CN=WebServer1 → A specific web server.
+    OU=DataCenter1 → It is in Data Center 1.
+    STREET=789 Cloud Ave → Physical address of the data center.
+    L=San Jose → City location.
+    ST=CA → State is California.
+    C=US → The country is the United States.
+    DC=techcloud,DC=net → The domain is techcloud.net.
+----------------------------------------------------------------------------------------------------------
+Example 8: A Secure Group with Limited Access
+
+CN=Finance Admins,OU=Restricted Access,O=BankSecure,C=UK,DC=banksecure,DC=co,DC=uk
+
+    CN=Finance Admins → A security group for financial administrators.
+    OU=Restricted Access → This group is placed in a high-security section.
+    O=BankSecure → The organization is "BankSecure".
+    C=UK → The company is in the United Kingdom.
+    DC=banksecure,DC=co,DC=uk → The domain is banksecure.co.uk.
+----------------------------------------------------------------------------------------------------------
+Example 9: A Remote Employee with a Unique ID
+
+UID=emp56789,CN=Bob Smith,OU=Remote Workers,STREET=456 Home St,L=Austin,ST=TX,C=US,DC=company,DC=com
+
+    UID=emp56789 → A unique employee ID.
+    CN=Bob Smith → The employee's name.
+    OU=Remote Workers → He is part of the "Remote Workers" group.
+    STREET=456 Home St → The employee's registered address.
+    L=Austin → The city.
+    ST=TX → The state (Texas).
+    C=US → The country (United States).
+    DC=company,DC=com → The company’s domain company.com.
+----------------------------------------------------------------------------------------------------------
+Example 10: A Device Registered to a Specific User
+
+CN=Laptop-123,OU=IT Assets,CN=John Doe,DC=enterprise,DC=org
+
+    CN=Laptop-123 → The device name.
+    OU=IT Assets → Stored under IT-managed assets.
+    CN=John Doe → The laptop is assigned to John Doe.
+    DC=enterprise,DC=org → The domain is enterprise.org.
+----------------------------------------------------------------------------------------------------------
+Example 11: A University Student in a Specific Department
+
+UID=stu2022001,CN=Emma Wright,OU=Computer Science,O=State University,C=CA,DC=stateuniversity,DC=edu
+
+    UID=stu2022001 → Unique student ID.
+    CN=Emma Wright → Student's full name.
+    OU=Computer Science → The student is in the Computer Science department.
+    O=State University → The university name.
+    C=CA → Located in California.
+    DC=stateuniversity,DC=edu → The university’s domain stateuniversity.edu.
+----------------------------------------------------------------------------------------------------------
+Example 12: A Government Office with a Branch in a Specific City
+
+O=Department of Transportation,OU=Field Office,STREET=123 Highway Rd,L=Denver,ST=CO,C=US,DC=govtransport,DC=gov
+
+    O=Department of Transportation → The government department name.
+    OU=Field Office → A specific field office.
+    STREET=123 Highway Rd → The office's physical address.
+    L=Denver → The city (Denver).
+    ST=CO → The state (Colorado).
+    C=US → The country (United States).
+    DC=govtransport,DC=gov → The domain is govtransport.gov.
+----------------------------------------------------------------------------------------------------------
+Example 13: A Healthcare System's Employee Database
+
+UID=dr1022,CN=Dr. Lisa Carter,OU=Cardiology,OU=Doctors,O=City Hospital,STREET=456 Health Ave,L=Boston,ST=MA,C=US,DC=cityhospital,DC=org
+
+    UID=dr1022 → Unique ID for the doctor.
+    CN=Dr. Lisa Carter → The doctor’s name.
+    OU=Cardiology → The department she works in.
+    OU=Doctors → A general category for all doctors.
+    O=City Hospital → The hospital name.
+    STREET=456 Health Ave → The hospital’s address.
+    L=Boston → The city.
+    ST=MA → The state (Massachusetts).
+    C=US → The country.
+    DC=cityhospital,DC=org → The domain is cityhospital.org.
+----------------------------------------------------------------------------------------------------------
+Example 14: A Cloud Storage System with Data Centers in Different Locations
+
+CN=StorageCluster-Alpha,OU=Cloud Infrastructure,O=SkyData,STREET=123 Cloud Blvd,L=Seattle,ST=WA,C=US,DC=skydata,DC=com
+
+    CN=StorageCluster-Alpha → A cloud storage cluster.
+    OU=Cloud Infrastructure → Managed under cloud infrastructure.
+    O=SkyData → The cloud company.
+    STREET=123 Cloud Blvd → The data center's address.
+    L=Seattle → The city.
+    ST=WA → The state (Washington).
+    C=US → The country.
+    DC=skydata,DC=com → The domain is skydata.com.
+----------------------------------------------------------------------------------------------------------
+Example 15: A Military Personnel Entry in a Defense System
+
+UID=mil76543,CN=Captain Jack Reynolds,OU=Naval Operations,O=US Navy,L=Norfolk,ST=VA,C=US,DC=defense,DC=gov
+
+    UID=mil76543 → A unique military ID.
+    CN=Captain Jack Reynolds → The officer’s name.
+    OU=Naval Operations → The specific department.
+    O=US Navy → The organization.
+    L=Norfolk → The base location.
+    ST=VA → The state (Virginia).
+    C=US → The country.
+    DC=defense,DC=gov → The domain is defense.gov.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

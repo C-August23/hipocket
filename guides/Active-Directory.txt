@@ -37,6 +37,7 @@ A Distinguished Name (DN) is a unique identifier used in Active Directory (AD) a
 Think of it like a file path or an address that tells you where something is stored in a hierarchy.
 
   Here are some examples of DN's that will help you wrap your head around them.
+
 ----------------------------------------------------------------------------------------------------------
 Example 1: A User in a Department
 

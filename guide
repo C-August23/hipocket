@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "What do you need help with?"
+echo 
+echo "1.    Active Directory"
+echo "2.    SID Formating"
+echo "3.    XML"
+echo "4.    Crontab"
+echo "5.    /etc/passwd Formating"
+echo "6.    syslog"
+echo "7.    xpath"
+echo "0.    Nevermind"
+read $i
+
+if [ $i > 0 ]
+then
+    if [$i == 1]
+    then
+        #less ./guides/Active-Directory.txt
+        echo "ad"
+    elif [[ $i == 2 ]]; then
+        #less ./SID-format.txt
+        echo "sid"
+    fi
+fi

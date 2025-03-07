@@ -1,3 +1,4 @@
+#!/bin/bash
 
 echo "What do you need help with?"
 echo 
@@ -41,6 +42,7 @@ then
     then
         less ./xpath.txt
     fi
-else
+    
+elif [$i == 0]
     echo "Alrighty, have a good day!"
 fi

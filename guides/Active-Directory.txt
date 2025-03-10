@@ -11,9 +11,24 @@ CRONTAB - #DOCUMENTATION# ------------------V0.1------------------------------ C
 =========================================================================================================
 
 
-Active Directory uses Lightweight Directory Access Protocol (LDAP) versions 2 and 3, Microsoft's version of Kerberos (authentication), and DNS
+Active Directory uses Lightweight Directory Access Protocol (LDAP) versions 2 and 3, Microsoft's version of Kerberos (authentication), and DNS.
+
+The point is that it allows you to login to a network to have access to network resources. A "network" in this respect is basically a domain, domain tree or domain forest. Login to these AD's require going through the DC, domain controller, which has the active directory on it.   
+
+========================== Terminology: ================================================================
+
+Distinguished Name (DN) --------------------- Used inside Active Directory to identify objects (e.g., users, groups, OUs).
+FQDN (Fully Qualified Domain Name) ---------- Used for network addressing (e.g., websites, servers, or authentication).
+Domain controller (DC) ---------------------- Handles login, authentication, and security.
+URL (Uniform Resource Locator) -------------- Structured network address used to access resources, relying on DNS for resolution.
 
 
+
+=========================== Trees, forests, and domains: ===============================================
+
+A Tree is a collection of domains, a Forest is a collection of trees. Trees and Forests allow resource sharing with different permissions, assigned by admins.
+
+A tree structures the Distinguished Name (DN), for example; the domain west is under the domain USA under the domain tesla.com. The FQDN for this purpose, would be west.usa.tesla.com
 
 =========================== Distinguished Name (DN) explaination: =========================================
 

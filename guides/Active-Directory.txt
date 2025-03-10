@@ -29,10 +29,7 @@ A tree structures the Distinguished Name (DN), for example; the domain west is u
 
 =========================== Distinguished Name (DN) explaination: =========================================
 
-
 A Distinguished Name (DN) is a unique identifier used in Active Directory (AD) and LDAP to specify the exact location of an object (like a user, computer, or group) within the directory structure.
-
-
 
 *String*-----*Attribute type*
   DC---------domainComponent
@@ -44,7 +41,6 @@ A Distinguished Name (DN) is a unique identifier used in Active Directory (AD) a
   ST---------stateOrProvinceName
   C----------countryName
   UID--------userid
-
 
 Think of it like a file path or an address that tells you where something is stored in a hierarchy.
 
@@ -214,21 +210,3 @@ UID=mil76543,CN=Captain Jack Reynolds,OU=Naval Operations,O=US Navy,L=Norfolk,ST
     ST=VA → The state (Virginia).
     C=US → The country.
     DC=defense,DC=gov → The domain is defense.gov.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
